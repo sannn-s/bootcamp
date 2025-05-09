@@ -16,6 +16,8 @@ div a:hover{
     grid-template-columns: 1fr auto;
     align-items: center;
     margin-bottom: 10px;
+    position: sticky;
+    top: 0%;
 }
 
 .grid-profile{
