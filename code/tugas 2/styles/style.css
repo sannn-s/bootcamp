@@ -98,10 +98,8 @@ div a:hover{
     gap: 150px;
     grid-template-columns: repeat(3, 350px);
     justify-content: center;
-    padding-top: 30px;  
-    padding-bottom: 50px;  
-    padding-right: 50px;
-    padding-left: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;  
 }
 
 .grid-portofolioitem > div{
@@ -136,4 +134,35 @@ div a:hover{
     margin: 0;
     padding: 0;
     font-family: cursive;
+}
+
+.grid-portofolioitem > div:hover{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.10);
+}
+
+@media screen and (max-width: 768px) {
+    .grid-profileitem {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-portofolioitem {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+
+    .grid-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .grid-portofolio{
+        padding-top: 10px;
+        justify-self: center;
+    }
 }
