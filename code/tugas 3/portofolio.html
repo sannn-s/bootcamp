@@ -4,9 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style/styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
 </head>
 <body>
+    <style>
+.card-img-top {
+        max-height: 200px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+}
+
+.card {
+    background-color: orange;
+    border-radius: 10px;
+}
+
+ul :hover{
+    background-color: orange;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+#navbar {
+     position: sticky ;
+     top: 0%;
+}
+
+#about-me::before,
+#my-project::before {
+  content: "";
+  display: block;
+  height: 80px;
+  margin-top: -30px;
+  visibility: hidden;
+}
+
+    </style>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary " id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">My Website</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#about-me">About Me</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="#my-project">My Projects</a>
+          </ul>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container" style="margin-top: 60px ;">
+    <div class="row">
+        <div class="col-md-6">
+            <h6>Hi,I am</h6>
+            <h4 style="color: orange;">Muhammad Ahsan Azhari</h4>
+            <h1 class="fw-bold">
+                <span class="line1">Web</span><br>
+                <span class="line2" style="padding-left: 80px;">Developer</span>
+            </h1>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat atque in, maxime illo expedita ut dolor, saepe voluptates molestias pariatur excepturi, nisi iusto ea veniam maiores inventore quibusdam ex similique.</p>
+        <div class="button-contactme">
+            <button class="btn btn-primary"  data-bs-toggle="modal" data-bs-target="#ContactMe" style="background-color: orange;">Contact Me</button>
+        </div>    
+        </div>
+         <div class="col-md-6" style="text-align: center;">
+           <img src="images/foto profile.png" alt="profile" class="img-fluid" style="height: 400px; border-radius: 50%;">
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="ContactMe" tabindex="-1" aria-labelledby="ContactMeLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="ContactMeLabel">Contact Me</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3 d-flex align-items-center">
+            <div><i class="bi bi-whatsapp" style="font-size: 40px; color: #25d366;"></i></div>
+        <div style="margin-left: 20px;">
+            <h5>Whatsapp</h5>
+            <a href="https://wa.me/62856044977">+62 878-5604-4977</a>
+        </div>
+        </div>
+        <div>
+        <div class="d-flex align-items-center">
+            <div><i class="bi bi-envelope-at" style="font-size: 40px; color: #d44638;"></i></div>
+        <div style="margin-left: 20px;">
+            <h5>Email</h5>
+            <a href="mailto:aanahsan46@gmail.com">aanahsan46@gmail.com</a>
+        </div>
+        </div>
+    </div>
+   </div>
+  </div>
+</div>
+</div>
+
+<div class="section" id="about-me" >
+    <div class="container" style="margin-top: 100px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-center">
+                    <div class="text-center"style="max-width: 600px;">
+                    <h2 class="fw-bold">About Me</h2>
+                    <p>I am an informatics engineering student
+                        at Maulana Malik Ibrahim Islamic
+                        University, Malang. I am adaptable,
+                        collaborative, and enjoy working in a
+                        team. I always try to develop
+                        my skills to be better than the previous
+                        day</p>
+                    </div> 
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-person" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Full Name</h5>
+                        <p>Muhammad Ahsan Azhari</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-backpack" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Education</h5>
+                        <p >Muhammad Ahsan Azhari</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-person-workspace" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Pekerjaan</h5>
+                        <p >Mahasiswa</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-telephone-fill" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Contact</h5>
+                        <p>aanahsan46@gmail.com <br> 6287856044977</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-person-arms-up" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Hobi</h5>
+                        <p>Olahraga</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" style="padding-top: 50px; padding-left: 50px; padding-right: 50px;">
+                <div class="d-flex">
+                    <div class="d-flex flex-column justify-content-center">
+                       <i class="bi bi-geo-alt" style="color: orange; font-size: 40px; padding-bottom: 30px;"></i>
+                    </div>
+                    <div class="ms-3 d-flex flex-column justify-content-center">
+                        <h5 class="fw-bold">Alamat</h5>
+                        <p>Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>   
+
+<div class="section" id="my-project" style="margin-bottom: 50px;">
+  <div class="container" style="margin-top: 60px;">
+    <div class="row">
+      <div class="col-12" style="padding-bottom: 30px;">
+        <div class="d-flex justify-content-center">
+          <div class="text-center" style="max-width: 600px;">
+            <h2 class="fw-bold">My Projects</h2>
+            <p>Beberapa hasil project yang telah dibuat sebelumnya</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4" id="card1">
+        <div class="card h-100" style="border-radius: 10px; background-color: orange;">
+          <img src="images/proyek1 1.png" class="card-img-top" alt="proyek1" style="max-height: 200px; object-fit: cover; border-radius: 10px 10px 0 0;">
+          <div class="card-body p-3">
+            <h5 class="card-title">Project 1</h5>
+            <p class="card-text">Sebuah Website yang menampilkan beberapa resep makanan asli Indonesia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4" id="card2">
+        <div class="card h-100" style="border-radius: 10px; background-color: orange;">
+          <img src="images/proyek3 1.png" class="card-img-top" alt="proyek2" style="max-height: 200px; object-fit: cover; border-radius: 10px 10px 0 0;">
+          <div class="card-body p-3">
+            <h5 class="card-title">Project 2</h5>
+            <p class="card-text">Website untuk melihat beberapa artikel, masih dalam proses.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4" id="card3">
+        <div class="card h-100" style="border-radius: 10px; background-color: orange;">
+          <img src="images/proyek4 1.png" class="card-img-top" alt="proyek3" style="max-height: 200px; object-fit: cover; border-radius: 10px 10px 0 0;">
+          <div class="card-body p-3">
+            <h5 class="card-title">Project 3</h5>
+            <p class="card-text">Mini project untuk menghitung volume dan luas dari sebuah tabung.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>
