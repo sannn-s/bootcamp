@@ -19,9 +19,25 @@
     }
     .product img {
       width: 100%;
-      height: 180px;
+      height: 210px;
       object-fit: cover;
       border-radius: 6px;
+    }
+    .filter-box {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filter-box input {
+      margin: 5px;
+      padding: 8px;
+    }
+    .filter-box button {
+      padding: 8px 15px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -32,40 +48,61 @@
 
   <section id="products">
     <h2 style="text-align: center;">Our Products</h2>
+    <div class="filter-box">
+      <input type="text" id="search" placeholder="Search for products..." />
+      <input type="number" id="min-price" placeholder="Min Price" />
+      <input type="number" id="max-price" placeholder="Max Price" />
+      <button onclick="filterProducts()">Search</button>
+    </div>
     <div id="product-list"></div>
   </section>
 
   <script>
     const products = [
-      { id: 1, name: "Laptop X", price: 999.99, description: "Powerful laptop with 16GB RAM and 1TB SSD.", image: "https://via.placeholder.com/250x180?text=Laptop+X" },
-      { id: 2, name: "Camera Ultra", price: 499.99, description: "High-resolution camera perfect for photography lovers.", image: "https://via.placeholder.com/250x180?text=Camera+Ultra" },
-      { id: 3, name: "Smartphone Y", price: 799.99, description: "Sleek smartphone with OLED display and 5G support.", image: "https://via.placeholder.com/250x180?text=Smartphone+Y" },
-      { id: 4, name: "Wireless Headphones", price: 199.99, description: "Noise-cancelling headphones with rich bass.", image: "https://via.placeholder.com/250x180?text=Headphones" },
-      { id: 5, name: "Smartwatch Pro", price: 149.99, description: "Fitness tracking smartwatch with heart rate monitor.", image: "https://via.placeholder.com/250x180?text=Smartwatch" },
-      { id: 6, name: "Bluetooth Speaker", price: 89.99, description: "Portable speaker with deep sound and waterproof design.", image: "https://via.placeholder.com/250x180?text=Speaker" },
-      { id: 7, name: "Gaming Mouse", price: 59.99, description: "Ergonomic gaming mouse with RGB lighting.", image: "https://via.placeholder.com/250x180?text=Gaming+Mouse" },
-      { id: 8, name: "Mechanical Keyboard", price: 129.99, description: "Tactile mechanical keyboard ideal for typing and gaming.", image: "https://via.placeholder.com/250x180?text=Keyboard" },
-      { id: 9, name: "Drone X200", price: 699.99, description: "4K drone with GPS tracking and long battery life.", image: "https://via.placeholder.com/250x180?text=Drone+X200" },
-      { id: 10, name: "External Hard Drive", price: 119.99, description: "2TB external hard drive with USB 3.0 support.", image: "https://via.placeholder.com/250x180?text=Hard+Drive" }
+      { id: 1, name: "Laptop X", price: 999.99, description: "Powerful laptop with 16GB RAM and 1TB SSD.", image: "image/laptop.jpg" },
+      { id: 2, name: "Camera Ultra", price: 499.99, description: "High-resolution camera perfect for photography lovers.", image: "image/camera.jpeg" },
+      { id: 3, name: "Smartphone Y", price: 799.99, description: "Sleek smartphone with OLED display and 5G support.", image: "image/smartphone2.jpg" },
+      { id: 4, name: "Wireless Headphones", price: 199.99, description: "Noise-cancelling headphones with rich bass.", image: "image/headphones.jpg" },
+      { id: 5, name: "Smartwatch Pro", price: 149.99, description: "Fitness tracking smartwatch with heart rate monitor.", image: "image/smartwatch.jpg" },
+      { id: 6, name: "Bluetooth Speaker", price: 89.99, description: "Portable speaker with deep sound and waterproof design.", image: "image/speaker.jpg" },
+      { id: 7, name: "Mouse", price: 59.99, description: "Ergonomic mouse with RGB lighting.", image: "image/mouse.jpg" },
+      { id: 8, name: "Mechanical Keyboard", price: 129.99, description: "Tactile mechanical keyboard ideal for typing and gaming.", image: "image/mechanical keyboard.jpg" },
+      { id: 9, name: "Drone", price: 699.99, description: "4K drone with GPS tracking and long battery life.", image: "image/drone.jpg" },
+      { id: 10, name: "External Hard Drive", price: 119.99, description: "2TB external hard drive with USB 3.0 support.", image: "image/external hard drive.jpg" }
     ];
 
     const productList = document.getElementById("product-list");
 
-    for (let i = 0; i < products.length; i++) {
-      const product = products[i];
+    function renderProducts(filteredList) {
+      productList.innerHTML = "";
+      filteredList.forEach(product => {
+        const productDiv = document.createElement("div");
+        productDiv.classList.add("product");
 
-      const productDiv = document.createElement("div");
-      productDiv.classList.add("product");
-
-      productDiv.innerHTML = `
-        <img src="${product.image}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
-        <p>${product.description}</p>
-      `;
-
-      productList.appendChild(productDiv);
+        productDiv.innerHTML = `
+          <img src="${product.image}" alt="${product.name}">
+          <h3>${product.name}</h3>
+          <p><strong>Price:</strong> ${product.price.toFixed(2)} IDR</p>
+          <p>${product.description}</p>
+        `;
+        productList.appendChild(productDiv);
+      });
     }
+
+    function filterProducts() {
+      const keyword = document.getElementById("search").value.toLowerCase();
+      const min = parseFloat(document.getElementById("min-price").value) || 0;
+      const max = parseFloat(document.getElementById("max-price").value) || Infinity;
+
+      const filtered = products.filter(p => {
+        const matchName = p.name.toLowerCase().includes(keyword);
+        const matchPrice = p.price >= min && p.price <= max;
+        return matchName && matchPrice;
+      });
+
+      renderProducts(filtered);
+    }
+    renderProducts(products);
   </script>
 </body>
 </html>
