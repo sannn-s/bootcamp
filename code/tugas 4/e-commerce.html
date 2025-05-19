@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>E-Commerce</title>
+  <style>
+    #product-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .product {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="text-align: center; padding: 30px;">Welcome to Our E-Commerce Site</h1>
+  </header>
+
+  <section id="products">
+    <h2 style="text-align: center;">Our Products</h2>
+    <div id="product-list"></div>
+  </section>
+
+  <script>
+    const products = [
+      { id: 1, name: "Laptop X", price: 999.99, description: "Powerful laptop with 16GB RAM and 1TB SSD.", image: "https://via.placeholder.com/250x180?text=Laptop+X" },
+      { id: 2, name: "Camera Ultra", price: 499.99, description: "High-resolution camera perfect for photography lovers.", image: "https://via.placeholder.com/250x180?text=Camera+Ultra" },
+      { id: 3, name: "Smartphone Y", price: 799.99, description: "Sleek smartphone with OLED display and 5G support.", image: "https://via.placeholder.com/250x180?text=Smartphone+Y" },
+      { id: 4, name: "Wireless Headphones", price: 199.99, description: "Noise-cancelling headphones with rich bass.", image: "https://via.placeholder.com/250x180?text=Headphones" },
+      { id: 5, name: "Smartwatch Pro", price: 149.99, description: "Fitness tracking smartwatch with heart rate monitor.", image: "https://via.placeholder.com/250x180?text=Smartwatch" },
+      { id: 6, name: "Bluetooth Speaker", price: 89.99, description: "Portable speaker with deep sound and waterproof design.", image: "https://via.placeholder.com/250x180?text=Speaker" },
+      { id: 7, name: "Gaming Mouse", price: 59.99, description: "Ergonomic gaming mouse with RGB lighting.", image: "https://via.placeholder.com/250x180?text=Gaming+Mouse" },
+      { id: 8, name: "Mechanical Keyboard", price: 129.99, description: "Tactile mechanical keyboard ideal for typing and gaming.", image: "https://via.placeholder.com/250x180?text=Keyboard" },
+      { id: 9, name: "Drone X200", price: 699.99, description: "4K drone with GPS tracking and long battery life.", image: "https://via.placeholder.com/250x180?text=Drone+X200" },
+      { id: 10, name: "External Hard Drive", price: 119.99, description: "2TB external hard drive with USB 3.0 support.", image: "https://via.placeholder.com/250x180?text=Hard+Drive" }
+    ];
+
+    const productList = document.getElementById("product-list");
+
+    for (let i = 0; i < products.length; i++) {
+      const product = products[i];
+
+      const productDiv = document.createElement("div");
+      productDiv.classList.add("product");
+
+      productDiv.innerHTML = `
+        <img src="${product.image}" alt="${product.name}">
+        <h3>${product.name}</h3>
+        <p><strong>Price:</strong> $${product.price.toFixed(2)}</p>
+        <p>${product.description}</p>
+      `;
+
+      productList.appendChild(productDiv);
+    }
+  </script>
+</body>
+</html>
