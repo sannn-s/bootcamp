@@ -110,3 +110,22 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+insert into `products` (`id`, `nama produk`, `harga`, `deskripsi`, `stok`) values
+(1, 'Handphone', 10000, 'Handphone dengan ram 16 GB, dapat mempercepat performa setiap saat', 10),
+(2, 'Mouse', 20000, 'Dengan warna hitam ditambah dengan adanya RGB, meningkatkan style yang nice', 5),
+(3, 'Keyboard', 15000, 'Keyboard dengan brown switch dapat meningkatkan pengalaman dalam bekerja', 20),
+(4, 'Headphone', 30000, 'Suara yang jernih dan design yang kekinian', 8),
+(5, 'Laptop', 25000, 'Ram 16 GB Intel Core i9 meningkatkan performa setiap saat', 15);
+
+UPDATE `products` SET `stok` = 20 WHERE `id` = 1;
+
+DELETE FROM `products` WHERE `stok` < 10;
+
+SELECT * FROM `products` WHERE `stok` > 10;
+
+CREATE TABLE 'admin'{
+  'id' int(10) NOT NULL,
+  'username' varchar(50) NOT NULL,
+  'password' varchar(255) NOT NULL
+}
